@@ -1,68 +1,58 @@
-# Algorithms and Data Structures
+# Algorithms & Data Structures — C/C++ Labs
 
-Collection of laboratory assignments completed during the **Algorithms and Data Structures** course at **Wrocław University of Science and Technology (Politechnika Wrocławska)**. The repository contains implementations of fundamental data structures, algorithms, and experimental complexity analysis.
+Coursework from **Algorithms and Data Structures** at Wrocław University of Science and Technology. The repository combines implementations of fundamental algorithms with experiments on operation counts, runtime and input-dependent behavior.
 
-## Laboratory 1 – Basic Data Structures
+**Scope:** a collection of independent C/C++ exercises and experiment artifacts. It is not one application with a single root build.
 
-### Task 1 – Stack and Queue
-Implementation of **Stack (LIFO)** and **Queue (FIFO)** data structures with basic operations, error handling, and demonstration of inserting and removing elements.
+## Laboratory map
 
-### Task 2 – Singly Circular Linked List
-Implementation of a **singly circular linked list**, including insertion, merging two lists, and experimental analysis of average search cost using randomly generated data.
+| Directory | Topics | Example work |
+| --- | --- | --- |
+| [lista1](lista1/) | Basic data structures | Stack, queue, singly and doubly circular linked lists |
+| [lista2](lista2/) | Sorting and structured search | Insertion/quick/hybrid sorting, merge-based sorting and matrix search |
+| [lista3](lista3/) | Selection and search | Randomized selection, median of medians, group-size comparisons and binary-search comparisons |
+| [lista4](lista4/) | Trees and graphs | BST, splay trees, Prim/Kruskal minimum spanning trees and information propagation |
 
-### Task 3 – Doubly Circular Linked List
-Implementation of a **doubly circular linked list** with bidirectional traversal and performance comparison of random search operations.
+The laboratory directories also contain assignment notes, benchmark output, reports, plotting scripts and figures. Folder and source names retain the coursework's original Polish terminology.
 
----
+## Engineering focus
 
-## Laboratory 2 – Sorting Algorithms
+- Implementing data structures and their operations directly.
+- Measuring comparisons, swaps, pointer operations and tree height.
+- Comparing randomized and ordered input scenarios.
+- Separating theoretical complexity from observed experimental behavior.
+- Generating figures from collected results.
 
-### Task 1 – Sorting Algorithms
-Implementation of **Insertion Sort**, **Quick Sort**, and a **Hybrid Quick Sort** (switching to Insertion Sort for small partitions). The algorithms count comparisons and swaps while verifying correctness.
+## Build individual exercises
 
-### Task 2 – Experimental Analysis
-Performance comparison of the implemented sorting algorithms using randomly generated datasets. Includes statistical analysis and complexity visualization.
+Use a C11 compiler for the C exercises and a C++17 compiler for the C++ examples. Some directories provide their own CMake or Makefile configuration.
 
-### Task 3 – Custom Divide & Conquer Sorting Algorithm
-Design and implementation of a custom sorting algorithm based on **Divide & Conquer** and merge operations, followed by comparison with Merge Sort.
+For the stack/queue demonstration, from the repository root:
 
-### Task 4 – Matrix Search
-Implementation and evaluation of efficient algorithms for searching values in a row- and column-sorted matrix.
+```shell
+cc -std=c11 lista1/zadanie1/main.c lista1/zadanie1/queue.c lista1/zadanie1/stack.c -o stack-queue
+./stack-queue
+```
 
----
+For the standalone BST demonstration:
 
-## Laboratory 3 – Selection Algorithms
+```shell
+c++ -std=c++17 lista4/zadanie1/main.cpp -o bst-demo
+./bst-demo
+```
 
-### Task 1 – Order Statistics
-Implementation of **Randomized Select** and **Median of Medians (SELECT)** algorithms for finding the k-th smallest element.
+On Windows, use the corresponding executable filename produced by your compiler. The examples above show compilation from source rather than relying on historical binaries included with the coursework.
 
-### Task 2 – Experimental Comparison
-Performance analysis of both selection algorithms for different input sizes and values of *k*.
+Each task has its own input and execution conventions. Inspect its `main` function, local build file or experiment script before running a larger benchmark; there is no shared root command that runs every exercise.
 
-### Task 3 – Median Group Size Analysis
-Experimental evaluation of how different group sizes affect the performance of the Median of Medians algorithm.
+## Reports and experiments
 
-### Task 4 – Optimized Search in Structured Arrays
-Implementation of custom search algorithms for arrays with known value distributions and comparison with Binary Search.
+- [Selection reports](lista3/sprawozdania/) discuss the selection and search experiments.
+- [BST experiments](lista4/zadanie2/) and [splay-tree experiments](lista4/zadanie4/) include result tables and figures.
+- [Minimum spanning tree project](lista4/zadanie5/) includes its own source, Makefile and plotting code.
 
----
+Python is used for the plotting scripts, not as the primary implementation language of the algorithms.
 
-## Laboratory 4 – Trees and Graph Algorithms
+## Repository status
 
-### Task 1 – Binary Search Tree (BST)
-Implementation of a **Binary Search Tree** supporting insertion, deletion, height calculation, and tree visualization.
-
-### Task 2 – BST Performance Analysis
-Experimental analysis of BST operations under different insertion orders, including comparisons, pointer operations, and tree height.
-
-### Task 3 – Splay Tree
-Implementation and demonstration of a **Splay Tree** with self-adjusting operations.
-
-### Task 4 – Splay Tree Performance Analysis
-Experimental comparison of Splay Tree performance under different scenarios.
-
-### Task 5 – Minimum Spanning Tree
-Implementation of **Prim's** and **Kruskal's** algorithms for finding the Minimum Spanning Tree of randomly generated weighted graphs, together with performance comparison.
-
-### Task 6 – Information Propagation in Trees
-Implementation of an algorithm that minimizes the number of communication rounds required to spread information through a rooted tree, followed by experimental evaluation.
+This repository preserves academic implementations and their associated experiment artifacts. It does not currently provide a unified automated test/CI pipeline. Reported results should be read together with the relevant input, script and experiment configuration.
